@@ -4,8 +4,8 @@ module.exports = {
         es6: true
     },
     extends: [
-        "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb",
     ],
     globals: {
         Atomics: "readonly",
