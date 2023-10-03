@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { TfiViewGrid } from 'react-icons/Tfi'
 import Link from "next/link";
 import palette from "../styles/palette";
+import useModal from "../hooks/useModal";
+import SignUpModal from "./auth/SignUpModal";
 
 const Container = styled.div`
   position: sticky;
@@ -11,7 +13,7 @@ const Container = styled.div`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  align-items: conter;
+  align-items: center;
   padding: 0 80px;
   background-color: white;
   box-shadow: rgba(0,0,0,0.08) 0px 1px 12px;
@@ -68,7 +70,7 @@ const Container = styled.div`
       background-color: rgba(0,0,0,0.75);
       z-index: 10;
     }
-    .model-contents {
+    .modal-contents {
       width: 400px;
       height: 400px;
       background-color: white;
@@ -78,20 +80,20 @@ const Container = styled.div`
 `;
 
 const Header: React.FC = () => {
-  const [modalOpened, setModalOpened] = useState(false);
+  const {openModal,ModalPortal} = useModal();
   
   return (
     <Container>
       <Link legacyBehavior href="/">
         <a className="header-logo-wrapper">
-          <TfiViewGrid className="header-logo" size={32}/>
+          <TfiViewGrid className="header-logo" size={32}/>Androwl
         </a>
       </Link>
       <div className="header-auth-buttons">
         <button 
           type="button" 
           className="header-sign-up-button"
-          onClick={()=> setModalOpened(true)}
+          onClick={openModal}
         >
           회원가입
         </button>
@@ -99,16 +101,9 @@ const Header: React.FC = () => {
           로그인
         </button>        
       </div>
-      {modalOpened && (
-        <div className="modal-wrapper">
-          <div
-            className="modal-background"
-            role="presentation"
-            onClick={() => setModalOpened(false)}
-          />
-          <div className="modal-contents" />
-        </div>
-      )}
+      <ModalPortal>
+        <SignUpModal />
+      </ModalPortal>
     </Container>
 
   );
