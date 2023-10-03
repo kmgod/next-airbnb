@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import AirbinLogoIcon from "../public/static/svg/logo/logo.svg";
-import AirbinLogoTextIcon from "../public/static/svg/logo/logo_text.svg";
+import AirbnbLogoIcon from "../public/static/svg/logo/logo.svg";
+import AirbnbLogoTextIcon from "../public/static/svg/logo/logo_text.svg";
 import Link from "next/link";
 import palette from "../styles/palette";
 
@@ -83,10 +83,10 @@ const Header: React.FC = () => {
   
   return (
     <Container>
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <a className="header-logo-wrapper">
-          <AirbinLogoIcon classname="header-logo" />
-          <AirbinLogoTextIcon />
+          <AirbnbLogoIcon className="header-logo" />
+          <AirbnbLogoTextIcon />
         </a>
       </Link>
       <div className="header-auth-buttons">
