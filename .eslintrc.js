@@ -19,11 +19,11 @@ module.exports = {
         ecmaVersion: 2021,
         sourceType: "module",
     },
-    "plugins": [
+    plugins: [
         "react",
         "@typescript-eslint",
     ],
-    "rules": {
+    rules: {
         quotes: ["error", "double"], //더블쿼터 사용
         "@typesciript-eslint/quotes": ["error", "double"], //더블쿼터 사용
         "no-unused-vars": "off", //사용 안 한 변수 경고 중복

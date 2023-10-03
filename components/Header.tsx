@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import AirbnbLogoIcon from "../public/static/svg/logo/logo.svg";
-import AirbnbLogoTextIcon from "../public/static/svg/logo/logo_text.svg";
+import { TfiViewGrid } from 'react-icons/Tfi'
 import Link from "next/link";
 import palette from "../styles/palette";
 
@@ -31,7 +30,7 @@ const Container = styled.div`
       margin-right: 8px;
       padding: 0 16px;
       border: 0;
-      border-ratius: 21px;
+      border-radius: 21px;
       background-color: white;
       cursor: pointer;
       outline: none;
@@ -57,7 +56,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: conter;
+    justify-content: center;
     align-items: center;
     position: fixed;
     top: 0;
@@ -85,8 +84,7 @@ const Header: React.FC = () => {
     <Container>
       <Link legacyBehavior href="/">
         <a className="header-logo-wrapper">
-          <AirbnbLogoIcon className="header-logo" />
-          <AirbnbLogoTextIcon />
+          <TfiViewGrid className="header-logo" size={32}/>
         </a>
       </Link>
       <div className="header-auth-buttons">
