@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TfiViewGrid } from 'react-icons/Tfi'
 import Link from "next/link";
 import palette from "../styles/palette";
-import useModal from "../hooks/useModal";
+import useModal from "../hooks/usePortal";
 import SignUpModal from "./auth/SignUpModal";
 
 const Container = styled.div`
