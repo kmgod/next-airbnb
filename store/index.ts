@@ -2,6 +2,7 @@ import { HYDRATE, createWrapper, MakeStore } from "next-redux-wrapper";
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector as useReduxSelector } from "react-redux";
 import user from "./user";
+import auth from './auth';
 
 const rootReducer = combineReducers({
   user: user.reducer,

@@ -8,7 +8,7 @@ export const searchPlaceAPI = (keyword: string) =>
 
 //* placeId로 장소 정보 가져오기
 export const getPlaceAPI = (placeId: string) =>
-  axios.get<{ location: string; latitude: Number; longitude: number }>(
+  axios.get<{ location: string; latitude: number; longitude: number }>(
     `/api/maps/places/${placeId}`
   );
 
