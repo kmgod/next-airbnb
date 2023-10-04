@@ -14,7 +14,7 @@ const Container = styled.div`
     padding: 0 11px;
     border-radius: 4px;
     outline: none;
-    background-image: url("/static/svg/common/selector/selector_down_arrow.svg");
+    /* background-image: url("/static/svg/common/selector/selector_down_arrow.svg"); */
     background-position: right 11px center;
     background-repeat: no-repeat;
     font-size: 16px;
