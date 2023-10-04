@@ -3,9 +3,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector as useReduxSelector } from "react-redux";
 import user from "./user";
 import auth from './auth';
+import common from "./common";
+import searchRoom from "./searchRoom";
 
 const rootReducer = combineReducers({
+  common: common.reducer,
   user: user.reducer,
+  auth: auth.reducer,
+  searchRoom: searchRoom.reducer,
 });
 
 //* 스토어의 타입
