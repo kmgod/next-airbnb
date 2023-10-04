@@ -86,7 +86,7 @@ const Header: React.FC = () => {
     <Container>
       <Link legacyBehavior href="/">
         <a className="header-logo-wrapper">
-          <TfiViewGrid className="header-logo" size={32}/>Androwl
+          <TfiViewGrid className="header-logo" size={32}/>
         </a>
       </Link>
       <div className="header-auth-buttons">
