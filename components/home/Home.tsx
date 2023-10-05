@@ -70,5 +70,6 @@ const Home: React.FC = () => {
       <h2>가까운 여행지, 에어비엔비와 탐험해보세요.</h2>
       {}
     </Container>
-  )
-}
+  );
+};
+export default Home;
