@@ -9,7 +9,7 @@ import palette from "../../styles/palette"
 import Input from "../common/Input";
 import { dayList, monthList, yearList } from "../../lib/staticData";
 import Selector from "../common/Selector";
-import Button from "../common/Button";
+import Button from "../common/button/Button";
 
 const Container = styled.div`
   width: 560px;
