@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import styled from "styled-components";
-import ClosedXIcon from "../../public/static/svg/modal/xmark.svg"
-import MailIcon from "../../public/static/svg/auth/email.svg"
-import PersonIcon from "../../public/static/svg/auth/user.svg"
-import OpenedEyeIcon from "../../public/static/svg/auth/eye.svg"
-import ClosedEyeIcon from "../../public/static/svg/auth/eyeoff.svg"
-import palette from "../../styles/palette"
-import Input from "../common/Input";
-import { dayList, monthList, yearList } from "../../lib/staticData";
-import Selector from "../common/Selector";
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/user";
+import MailIcon from '../../public/static/svg/input/mail.svg';
+import PersonIcon from "../../public/static/svg/input/person.svg";
+import OpenedEyeIcon from "../../public/static/svg/input/opened-eye.svg";
+import ClosedEyeIcon from "../../public/static/svg/input/closed_eye.svg";
+import palette from "../../styles/palette";
+import Selector from "../common/selector/Selector";
+import { monthList, dayList, yearList } from "../../lib/staticData";
 import Button from "../common/button/Button";
+import { signupAPI } from "../../lib/api/auth";
+import PasswordWarning from './PasswordWarning';
+import { authActions } from "../../store/auth";
+import Input from "../common/Input";
 
 const Container = styled.div`
   width: 560px;

@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { TfiViewGrid } from 'react-icons/Tfi'
 import Link from "next/link";
+import OutsideClickHandler from "react-outside-click-handler";
+import { useDispatch } from "react-redux";
 import palette from "../styles/palette";
-import useModal from "../hooks/usePortal";
-import SignUpModal from "./auth/SignUpModal";
+
+import AirbnbLogoIcon from '../public/static/svg/logo/airbnb_logo.svg';
+import AirbnbLogoText from '../public/static/svg/logo/airbnb_logo_text.svg';
+import HamburgerIcon from '../public/static/svg/header/hamburger.svg';
+
+import usePortal from "../hooks/usePortal";
+import { useSelector } from '../store';
+import { logoutAPI } from '../lib/api/auth';
+import { userActions } from '../store/user';
+import AuthModal from './auths/AuthModal';
+import { authAction } from "./store/auth";
 
 const Container = styled.div`
   position: sticky;
@@ -80,7 +90,7 @@ const Container = styled.div`
 `;
 
 const Header: React.FC = () => {
-  const {openModal,ModalPortal} = useModal();
+  const {openModalPortal, closeModalPortal, ModalPortal} = usePortal();
   
   return (
     <Container>
