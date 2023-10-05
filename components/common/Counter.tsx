@@ -95,5 +95,6 @@ const Counter: React.FC<IProps> = ({
           </button>          
         </div>
       </Container>
-    )
-  }
+    );
+  };
+  export default React.memo(Counter);
