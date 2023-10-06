@@ -1,15 +1,19 @@
-import { HYDRATE, createWrapper, MakeStore } from "next-redux-wrapper";
+import { HYDRATE, createWrapper, MakeStore } from 'next-redux-wrapper';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useSelector as useReduxSelector } from "react-redux";
-import user from "./user";
+import { TypedUseSelectorHook, useSelector as useReduxSelector } from 'react-redux';
+import user from './user';
 import auth from './auth';
-import common from "./common";
-import searchRoom from "./searchRoom";
+import common from './common';
+import registerRoom from './registerRoom';
+import room from './room';
+import searchRoom from './searchRoom';
 
 const rootReducer = combineReducers({
   common: common.reducer,
   user: user.reducer,
   auth: auth.reducer,
+  room: room.reducer,
+  registerRoom: registerRoom.reducer,
   searchRoom: searchRoom.reducer,
 });
 

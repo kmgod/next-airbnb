@@ -11,13 +11,14 @@ export type RegisterRoomState = {
   largeBuildingType: string | null;
   buildingType: string | null;
   roomType: string | null;
-  isSetupForGuest: boolean | null;
+  isSetUpForGuest: boolean | null;
   maximumGuestCount: number;
   bedroomCount: number;
   bedCount: number;
   bedList: { id: number; beds: { type: BedType; count: number }[]}[];
   publicBedList: { type: BedType; count: number }[];
   bathroomCount: number;
+  bathroomType: 'private' | 'public' | null;
   country: string;
   city: string;
   district: string;
@@ -27,8 +28,9 @@ export type RegisterRoomState = {
   latitude: number;
   longitude: number;
   amentities: string[];
+  conveniences: string[];
   photos: string[];
-  deescription: string;
+  description: string;
   title: string;
   price: number;
   startDate: string | null;
