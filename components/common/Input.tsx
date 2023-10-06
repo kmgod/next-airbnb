@@ -1,8 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import useValidateMode from "../../hooks/useValidateMode";
 import palette from "../../styles/palette";
 
-const Container = styled.div<{ iconExist: boolean}>`
+type InputContainerProps = {
+  iconExist: boolean;
+  isValid: boolean;
+  useValidation: boolean;
+}
+const Container = styled.div<InputContainerProps>`
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
   input {
     position: relative;
     width: 100%;
@@ -12,32 +22,75 @@ const Container = styled.div<{ iconExist: boolean}>`
     border-radius: 4px;
     font-size: 16px;
     outline: none;
-    ::placeholder {
+    & ::placeholder {
       color: ${palette.gray_76};
     }
     & :focus {
-      border-color: ${palette.dark_cyan} important;
+      border-color: ${palette.dark_cyan};
     }
   }
-  .input-icon-wrapper {
+  svg {
     position: absolute;
-    top: 0;
-    right: 110px;
+    right: 11px;
     height: 46px;
-    display: flex;
-    align-items: center;
   }
-`
+  .input-error-message {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: ${palette.tawny};
+  }
+  ${({ useValidation, isValid }) =>
+    useValidation &&
+    isValid &&
+    css`
+      input {
+        background-color: ${palette.snow};
+        border-color: ${palette.orange};
+        & :focus {
+          border-color: ${palette.orange};
+        }
+      }
+    `}
+    ${({ useValidation, isValid }) =>
+    useValidation &&
+    isValid &&
+    css`
+      input {
+        border-color: ${palette.dark_cyan};
+        }
+    `}
+`;
 
-interface IPops extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element;
+  label?: string;
+  isValid?: boolean;
+  useValidation?: boolean;
+  errorMessage?: string;
 }
 
-const Input: React.FC<IPops> = ({ icon, ...props }) => {
+const Input: React.FC<IProps> = ({ 
+  icon,
+  label,
+  isValid = false,
+  useValidation = true,
+  errorMessage,
+  ...props 
+}) => {
+  const { validateMode } = useValidateMode();
   return (
-    <Container iconExist={!!icon}>
+    <Container 
+      iconExist={!!icon}
+      isValid={isValid}
+      useValidation={validateMode && useValidation}
+    >
+      {label && <label>{label}</label>}
       <input {...props} />
-      <div className="input-icon-wrapper">{icon}</div>
+      {icon}
+      {useValidation && validateMode && isValid && errorMessage && (
+        <p className="input-error-message">{errorMessage}</p>
+      )}
     </Container>
 
   );

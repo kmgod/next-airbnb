@@ -17,10 +17,16 @@ const user = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setLoggedUser(state, action: PayloadAction<UserType>) {
+    //* 사용자 상태 변경하기
+    setUser(state, action: PayloadAction<UserType>) {
       state = { ...action.payload, isLogged: true};
       return state;
     },
+    //* 사용자 초기화 하기
+    initUser(state) {
+      state = initialState;
+      return state;
+    }
   },
 });
 
