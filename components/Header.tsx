@@ -215,7 +215,7 @@ const Header: React.FC = () => {
         </OutsideClickHandler>
       )}
       <ModalPortal>
-        <AuthModal closeModalPotal={closeModalPortal} />
+        <AuthModal closeModalPortal={closeModalPortal} />
       </ModalPortal>
     </Container>
 

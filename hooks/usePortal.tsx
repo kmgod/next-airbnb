@@ -38,7 +38,7 @@ const Container = styled.div`
 export default () => {
   const [modalOpened, setModalOpened] = useState(false);
 
-  const openModalPotal = () => {
+  const openModalPortal = () => {
     setModalOpened(true);
   }
 
@@ -90,7 +90,7 @@ export default () => {
     return null;
   };
   return {
-    openModalPotal,
+    openModalPortal,
     closeModalPortal,
     ModalPortal: React.memo(ModalPortal),
   };
