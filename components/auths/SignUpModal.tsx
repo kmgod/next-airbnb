@@ -286,6 +286,13 @@ const SignUpModal: React.FC<IProps> = ({ closeModalPortal }) => {
         <div className="sign-up-modal-submit-button-wrapper">
           <Button type="submit">가입하기</Button>
         </div>
+        <p>이미 에어비엔비 계정이 있나요?
+          <span
+            className='sign-up-modal-set-login'
+            role='presentation'
+            onClick={() => dispatch(authActions.setAuthMode("login"))}
+          >로그인</span>
+        </p>
       </form>
     </Container>
   )

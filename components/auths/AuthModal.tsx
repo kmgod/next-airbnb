@@ -20,4 +20,4 @@ const AuthModal: React.FC<IProps> = ({ closeModalPortal }) => {
     </div>
   );
 };
-export default AuthMode;
+export default AuthModal;
