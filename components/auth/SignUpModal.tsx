@@ -184,41 +184,72 @@ const SignUpModal: React.FC<IProps> = ({ closeModalPortal }) => {
             icon={<MailIcon />} 
             value={email}
             isValid={!!email}
-            onChange={onChangeEmail}
+            onChange={(e) => setEmail(e.target.value)}
+            errorMessage='이메일주소가 필요합니다'
           />
         </div>
-        <div className="input-wrapper">
+        <div className="sign-up-input-wrapper">
           <Input 
+            name='firstname'
             placeholder="이름(예:길동)" 
             icon={<PersonIcon />} 
             value={firstname}
-            onChange={onChangeFirstname}
+            isValid={!!firstname}
+            useValidation={validateMode}
+            onChange={(e) => setFirstname(e.target.value)}
+            errorMessage='이름을 입력하세요'
           />
         </div>
-        <div className="input-wrapper"> 
+        <div className="sign-up-input-wrapper"> 
           <Input 
+            name='lastname'
             placeholder="성(예: 홍)" 
             icon={<PersonIcon />} 
             value={lastname}
-            onChange={onChangeLastname} 
+            isValid={!!lastname}
+            useValidation={validateMode}
+            onChange={(e) => setLastname(e.target.value)} 
+            errorMessage='성을 입력하세요'
           />
         </div>
-        <div className="input-wrapper sign-up-password-input-wrapper">
+        <div className="sign-up-input-wrapper sign-up-password-input-wrapper">
           <Input 
+            name='password'
             placeholder="비밀번호 설정하기" 
-            type={hidePassword ? "password" : "text"}
+            type={isPasswordHided ? "password" : "text"}
             icon={
-              hidePassword ? (
+              isPasswordHided ? (
                 <ClosedEyeIcon onClick={toggleHidePassword} />
               ) : (
                 <OpenedEyeIcon onClick={toggleHidePassword} />
               )
             } 
+            onFocus={() => setPasswordFocused(true)}
             value={password}
-            onChange={onChangePassword}
+            isValid={!!password}
+            useValidation={validateMode}
+            onChange={(e) => setPassword(e.target.value)}
+            errorMessage='비밀번호를 입력하세요'
           />
         </div>
-        <p className="sign-up-birthdat-label">생일</p>
+        
+        {passwordFocused && (
+          <>
+            <PasswordWarning
+              isValid={!isPasswordHasNameOrEmail}
+              errorMessage='비밀번호에 본인이름이나 이메일 주소를 포함할 수 없습니다'
+            />
+            <PasswordWarning
+              isValid={!isPasswordOverMinLength}
+              errorMessage='비밀번호는 최소 8자 입니다'
+            />
+            <PasswordWarning
+              isValid={!isPasswordHasNumberOrSymbol}
+              errorMessage='비밀번호는 숫자와 기호를 포함해야 합니다.'
+            />          
+          </>
+        )}
+        <h4>생일</h4>
         <p className="sign-up-modal-birthday-info">
           만 18세 이상의 성인만 회원으로 가입할 수 있습니다. 생일은 다른
           에어비앤비 이용자에게 공개되지 않습니다.
@@ -226,29 +257,29 @@ const SignUpModal: React.FC<IProps> = ({ closeModalPortal }) => {
         <div className="sign-up-modal-birthday-selectors">
           <div className="sign-up-modal-birthday-month-selector">
             <Selector 
-            options={monthList} 
+            options={['월', ...monthList]} 
             disabledOptions={["월"]}
-            defaultValue="월"
-            value={birthMonth}
-            onChange={onChangeBirthMonth}
+            value={birthMonth || '월'}
+            onChange={(e) => setBirthMonth(e.target.value)}
+            isValid={!!birthMonth}
             />
           </div>
           <div className="sign-up-modal-birthday-day-selector">
             <Selector 
-            options={dayList} 
+            options={['일', ...dayList]} 
             disabledOptions={["일"]}
-            defaultValue="일"
-            value={birthDay}
-            onChange={onChangeBirthDay}
+            value={birthDay || '월'}
+            onChange={(e) => setBirthDay(e.target.value)}
+            isValid={!!birthDay}
             />
           </div> 
           <div className="sign-up-modal-birthday-yeay-selector">
             <Selector 
-            options={yearList} 
+            options={['년', ...yearList]} 
             disabledOptions={["년"]}
-            defaultValue="년"
-            value={birthYear}
-            onChange={onChangeBirthYear}
+            value={birthYear || '년'}
+            onChange={(e) => setBirthYear(e.target.value)}
+            isValid={!!birthYear}
             />
           </div>
         </div>
