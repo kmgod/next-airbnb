@@ -14,7 +14,7 @@ const app = ({ Component, pageProps }: AppProps) => {
       <Header />
       <GlobalStyle />
       <Component {...pageProps} />
-      <div id='root-modal' />
+      <div id="root-modal" />
     </>
   );
 };
@@ -22,19 +22,18 @@ const app = ({ Component, pageProps }: AppProps) => {
 app.getInitialProps = async (context: AppContext) => {
   const appInitialProps = await App.getInitialProps(context);
   const cookieObject = cookieStringToObject(context.ctx.req?.headers.cookie);
-  const { ctx, Component } = context;
-  console.log(ctx.store.getState());
   const { store } = context.ctx;
   const { isLogged } = store.getState().user;
   try {
     if (!isLogged && cookieObject.access_token) {
       axios.defaults.headers.cookie = cookieObject.access_token;
       const { data } = await getUser();
-      store.dispatch(userActions.setLoggedUser(data));
+      store.dispatch(userActions.setUser(data));
     }
-  } catch(e) {
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
   return { ...appInitialProps };
 };
- export default wrapper.useWrappedStore(app);
+
+export default wrapper.withRedux(app);
