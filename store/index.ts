@@ -1,19 +1,22 @@
-import { HYDRATE, createWrapper, MakeStore } from 'next-redux-wrapper';
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useSelector as useReduxSelector } from 'react-redux';
-import user from './user';
-import auth from './auth';
-import common from './common';
-import registerRoom from './registerRoom';
-import room from './room';
-import searchRoom from './searchRoom';
+import { HYDRATE, createWrapper, MakeStore } from "next-redux-wrapper";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  TypedUseSelectorHook,
+  useSelector as useReduxSelector,
+} from "react-redux";
+import user from "./user";
+import auth from "./auth";
+import common from "./common";
+import registerRoom from "./registerRoom";
+import room from "./room";
+import searchRoom from "./searchRoom";
 
 const rootReducer = combineReducers({
   common: common.reducer,
   user: user.reducer,
   auth: auth.reducer,
-  room: room.reducer,
   registerRoom: registerRoom.reducer,
+  room: room.reducer,
   searchRoom: searchRoom.reducer,
 });
 
@@ -34,10 +37,11 @@ const reducer = (state: any, action: any) => {
   }
   return rootReducer(state, action);
 };
+
 //* 타입 지원되는 커스텀 useSelector 만들기
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 
-const makeStore = () => {
+const initStore = () => {
   const store = configureStore({
     reducer,
     devTools: true,
@@ -45,4 +49,5 @@ const makeStore = () => {
   initialRootState = store.getState();
   return store;
 };
-export const wrapper = createWrapper(makeStore);
+
+export const wrapper = createWrapper(initStore);

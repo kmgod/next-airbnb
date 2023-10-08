@@ -7,11 +7,11 @@ const index: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Next AirBnB</title>
+        <title>넥스트 에어비앤비</title>
       </Head>
       <Home />
     </>
-  )
+  );
 };
 
 export default index;
