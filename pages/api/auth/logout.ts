@@ -4,10 +4,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if(req.method === 'DELETE') {
       res.setHeader(
-        'Set-Cookie :',
-        `access_token=;path=/;expires=${new Date(
-          Date.now() + 60 * 60 * 24 * 1000 * 3
-        )};httponly`
+        'Set-Cookie',
+        `access_token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT;httponly`
       );
       res.statusCode = 204;
       return res.end();

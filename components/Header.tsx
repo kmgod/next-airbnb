@@ -83,7 +83,7 @@ const Container = styled.div`
     &:hover {
       box-shadow: 0px 2px 8px rgba(0,0,0,0.12);
     }
-    img {
+    .header-user-profile-image {
       margin-left: 8px;
       width: 30px;
       height: 30px;
@@ -192,7 +192,7 @@ const Header: React.FC = () => {
             <HamburgerIcon />
             <img  
               src={user.profileImage}
-              className='header-user-profile img'
+              className='header-user-profile-image'
               alt='프로파일'
             />
           </button>
