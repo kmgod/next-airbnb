@@ -29,14 +29,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           'Set-Cookie :',
           `access_token=${token};path=/;expires=${new Date(
             Date.now() + 60 * 60 * 24 * 1000 * 3
-          )};httponly`
+          ).toUTCString()};httponly`
         );
         delete user.password;
         res.statusCode = 200;
         return res.send(user);
       }
     } catch (e) {
-      console.log(e);
+      console.log("Error: " + e);
       return res.end();
     }
   }

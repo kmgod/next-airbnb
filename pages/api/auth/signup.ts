@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         ...req.body,
         id: 1,
         password: hashedPassword,
-        profileImage: 'static/image/default_user_propfile_image.jsp',
+        profileImage: 'static/image/default_user_propfile_image.jpg',
       };
       Data.user.write([...users, newUser]);
     } else {
@@ -41,7 +41,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         ...req.body,
         id: newUserId,
         password: hashedPassword,
-        profileImage: 'static/image/default_user_propfile_image.jsp',
+        profileImage: 'static/image/default_user_propfile_image.jpg',
       }; 
       users.push(newUser)
       Data.user.write(users);

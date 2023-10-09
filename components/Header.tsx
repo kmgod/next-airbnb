@@ -129,6 +129,9 @@ const Header: React.FC = () => {
   //* 사용자 메뉴 여닫힘 여부
   const [isUsermenuOpened, setIsUsermenuOpened] = useState(false);
   const user = useSelector((state) => state.user);
+  console.log("사용자 이미지" + user.profileImage);
+  console.log('사용자 정보' + user);
+
   const dispatch = useDispatch();
 
   const logout = async () => {
@@ -189,8 +192,8 @@ const Header: React.FC = () => {
             <HamburgerIcon />
             <img  
               src={user.profileImage}
-              className='header-user-profile-image'
-              alt=''
+              className='header-user-profile img'
+              alt='프로파일'
             />
           </button>
           {isUsermenuOpened && (
