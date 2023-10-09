@@ -14,6 +14,6 @@ export const monthList = [
   "12월",
 ];
 // 1부터 31일까지
-export const dayList = Array.from(Array(31), (_, i) => String(1 + 1));
+export const dayList = Array.from(Array(31), (_, i) => String(i + 1));
 // 1900년부터 2030년 까지
 export const yearList = Array.from(Array(131), (_, i) => String(2030 - i))

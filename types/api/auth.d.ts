@@ -7,7 +7,7 @@ export type SignUpAPIBody = {
   birthday: Date;
 }
 //* 로그인 Body
-export type LoginAPIBody {
+export type LoginAPIBody = {
   email: string;
   password: string;
 }

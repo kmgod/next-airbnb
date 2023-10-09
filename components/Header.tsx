@@ -196,7 +196,7 @@ const Header: React.FC = () => {
           {isUsermenuOpened && (
             <ul className='header-usermenu'>
               <li>숙소관리</li>
-              <Link href='/room/register/building'>
+              <Link legacyBehavior href='/room/register/building'>
                 <a
                   role='presentation'
                   onClick={() => {

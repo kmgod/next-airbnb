@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { StoredUserType } from '../../types/user';
 
-const userDataPath = `${process.cwd()}/data/user.json`;
+const userDataPath = `${process.cwd()}/data/users.json`;
 
 const getList = async () => {
   try {
