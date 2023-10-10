@@ -129,8 +129,8 @@ const Header: React.FC = () => {
   //* 사용자 메뉴 여닫힘 여부
   const [isUsermenuOpened, setIsUsermenuOpened] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log("사용자 이미지" + user.profileImage);
-  console.log('사용자 정보' + user);
+  console.log(user.profileImage);
+  console.log(user);
 
   const dispatch = useDispatch();
 
@@ -209,7 +209,7 @@ const Header: React.FC = () => {
                   <li>숙소 등록하기</li>
                 </a>
               </Link>
-              <div className='header-usermenu_divider' />
+              <div className='header-usermenu-divider' />
               <li role='presentation' onClick={logout}>
                   로그아웃
               </li>

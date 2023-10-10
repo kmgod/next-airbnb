@@ -23,6 +23,7 @@ app.getInitialProps = wrapper.getInitialAppProps(
   (store) => async (context: AppContext) => {
     const appInitialProps = App.getInitialProps(context);
     const cookieObject = cookieStringToObject(context.ctx.req?.headers.cookie);
+    console.log(cookieObject);
     const { store } = context.ctx;
     const { isLogged } = store.getState().user;
     try {
