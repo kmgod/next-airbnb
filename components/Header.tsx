@@ -129,7 +129,6 @@ const Header: React.FC = () => {
   //* 사용자 메뉴 여닫힘 여부
   const [isUsermenuOpened, setIsUsermenuOpened] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log(user.profileImage);
   console.log(user);
 
   const dispatch = useDispatch();

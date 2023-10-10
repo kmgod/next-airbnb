@@ -48,7 +48,7 @@ const RegisterSelectorStyle = css`
     border-radius: 8px;
     outline: none;
     appearance: none;
-    background-image: url('/static/svg/common/selector/register_selector_down_arrow.svg');
+    background-image: url('/static/svg/selector/register_selector_down_arrow.svg');
     background-position: right 11px center;
     background-repeat: no-repeat;
   }
