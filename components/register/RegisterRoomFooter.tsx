@@ -61,7 +61,7 @@ const RegisterRoomFooter: React.FC<IProps> = ({
           <Button
             color='dark_cyan'
             onClick={(e) => {
-              if(isValid) {
+              if(!isValid) {
                 e.preventDefault();
                 setValidateMode(true);
               }

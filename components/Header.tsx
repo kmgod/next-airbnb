@@ -29,6 +29,9 @@ const Container = styled.div`
   box-shadow: rgba(0,0,0,0.08) 0px 1px 12px;
   z-index: 10;
   .header-logo-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     .header-logo {
@@ -148,7 +151,6 @@ const Header: React.FC = () => {
       <Link legacyBehavior href="/">
         <a className="header-logo-wrapper">
           <AirbnbLogoIcon className="header-logo" />
-          <AirbnbLogoText />
         </a>
       </Link>
       {!user.isLogged && (
