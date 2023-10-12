@@ -36,7 +36,7 @@ const Container = styled.div`
     width: 320px;
     margin-bottom: 57px;
   }
-  .register-room-bed-type-wrapper {
+  .register-room-bed-type-info {
     margin-top: 6px;
     margin-bottom: 20px;
   }
@@ -98,7 +98,7 @@ const RegisterRoomBedrooms: React.FC = () => {
       <RegisterRoomBedList />
       <RegisterRoomFooter 
         prevHref='/room/register/building'
-        nextHref='/room/register/bathrooms'
+        nextHref='/room/register/bathroom'
         isValid={!!bedroomCount}
       />
     </Container>

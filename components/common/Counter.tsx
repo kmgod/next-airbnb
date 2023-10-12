@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../../styles/palette';
-import CountMinusIcon from '../../public/static/svg/common/counter/counter_minus.svg';
-import CountPlusIcon from '../../public/static/svg/common/counter/counter_plus.svg';
+import CounterMinusIcon from '../../public/static/svg/common/counter/counter_minus.svg';
+import CounterPlusIcon from '../../public/static/svg/common/counter/counter_plus.svg';
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ const Container = styled.div`
       font-size: 21px;
       &:disabled {
         opacity: 0.3;
-        cursor: not allowed;
+        cursor: not-allowed;
       }
     }
   }
@@ -63,7 +63,7 @@ const Counter: React.FC<IProps> = ({
   description, }) => {
     return (
       <Container>
-        <label>
+        <label className='counter-label'>
           {label}
           {description && (
             <span className='counter-description'>{description}</span>
@@ -79,7 +79,7 @@ const Counter: React.FC<IProps> = ({
               }
             }}
           >
-            <CountMinusIcon />
+            <CounterMinusIcon />
           </button>
           <p>{value}</p>
           <button
@@ -91,7 +91,7 @@ const Counter: React.FC<IProps> = ({
               }
             }}
           >
-            <CountPlusIcon />
+            <CounterPlusIcon />
           </button>          
         </div>
       </Container>

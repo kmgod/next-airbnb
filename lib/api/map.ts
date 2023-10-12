@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from ".";
 
 //* 구글 장소 검색 API
 export const searchPlaceAPI = (keyword: string) =>
@@ -30,6 +30,7 @@ export const getLocationInfoAPI = async ({
 }: { 
   latitude: number,
   longitude: number;
-}) => axios.get<GetLocationInfoAPIResponse>(
-        `/api/maps/locations?latitude=${latitude}&longitude=${longitude}`
-      );
+}) => 
+  axios.get<GetLocationInfoAPIResponse>(
+    `/api/maps/locations?latitude=${latitude}&longitude=${longitude}`
+  );

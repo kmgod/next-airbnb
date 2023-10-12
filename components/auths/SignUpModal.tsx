@@ -20,6 +20,7 @@ const Container = styled.div`
   .sign-up-input-wrapper {
     position: relative;
     margin-bottom: 16px;
+    justify-content: center;
   }
   .sign-up-password-input-wrapper {
     svg {
