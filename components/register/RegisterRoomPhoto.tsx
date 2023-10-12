@@ -28,32 +28,76 @@ const Container = styled.div`
     max-width: 400px;
     margin-bottom: 24px;
   }
+  .register-room-upload-photo-wrapper {
+    width: 858px;
+    height: 433px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed ${palette.gray_bb};
+    border-radius: 6px;
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
 `;
 
 const RegisterRoomPhoto: React.FC = () => {
   const dispatch = useDispatch();
-  const conveniences = useSelector((state) => state.registerRoom.conveniences);
-  const onChangeConveniences = (selected: string[]) => {
-    dispatch(registerRoomActions.setConveniences(selected));
+  const photos = useSelector((state) => state.registerRoom.photos);
+  //* 파일 업로드 하기
+  const uploadImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    if(files && files.length > 0) {
+      const file = files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+      try {
+        const { data } = await uploadFileAPI(formData);
+        if(data) {
+          dispatch(registerRoomActions.setPhotos([...photos, data]));
+        }
+      } catch(e) {
+        console.log(e);
+      }
+    }
   };
 
   return (
     <Container>
-      <h2>게스트가 어떤 공간을 사용할 수 있나요?</h2>
-      <h3>6단계</h3>
+      <h2>숙소 사진 올리기</h2>
+      <h3>7단계</h3>
       <p className='register-room-step-info'>
-        등록하고자 하는 숙소에서 게스트가 이용 가능한 공용 공간을 선택하세요.
+        게스트가 사진을 보고 숙소의 느낌을 생생히 떠올려볼 수 있도록 해주세요.
+        우선 사진 1장을 업로드하고 숙소를 등록한 후에 추가할 수 있습니다.
       </p>
-      <div className='register-room-conveniences-checkbox-group-wrapper'>
-        <CheckboxGroup 
-          value={conveniences}
-          onChange={onChangeConveniences}
-          options={convenienceList}
-        />
-      </div>
-      <RegisterRoomFooter 
-        prevHref='/room/register/amentities'
-        nextHref='/room/register/photo'
+      {isEmpty(photos) && (
+        <div className='register-room-upload-photo-wrapper'>
+          <>
+            <input 
+              type='file'
+              accept='image/*'
+              multiple
+              onChange={uploadImage}
+            />
+            <Button icon={<UploadIcon />}>사진 업로드</Button>
+          </>
+        </div>
+      )}
+      {!isEmpty(photos) && <RegisterRoomPhothCardList photos={photos} />}
+      <RegisterRoomFooter
+        prevHref='/room/register/conveniences'
+        nextHref='/room/register/description'
       />
     </Container>
   );
