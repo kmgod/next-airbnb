@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
+import { isEmpty } from 'lodash';
 import palette from '../../styles/palette';
-import CheckboxGroup from '../common/CheckboxGroup';
 import { registerRoomActions } from '../../store/registerRoom';
+import Button from '../common/button/Button';
+import UploadIcon from '../../public/static/svg/button/upload.svg';
+import { uploadFileAPI } from '../../lib/api/file';
 import { useSelector } from '../../store';
 import RegisterRoomFooter from './RegisterRoomFooter';
-import { convenienceList } from '../../lib/staticData';
+import RegisterRoomPhothCardList from './RegisterRoomPhothCardList';
 
 const Container = styled.div`
   padding: 62px 30px 100px;
@@ -27,7 +30,7 @@ const Container = styled.div`
   }
 `;
 
-const RegisterRoomConveniences: React.FC = () => {
+const RegisterRoomPhoto: React.FC = () => {
   const dispatch = useDispatch();
   const conveniences = useSelector((state) => state.registerRoom.conveniences);
   const onChangeConveniences = (selected: string[]) => {
@@ -56,4 +59,4 @@ const RegisterRoomConveniences: React.FC = () => {
   );
 };
 
-export default RegisterRoomConveniences;
+export default RegisterRoomPhoto;
