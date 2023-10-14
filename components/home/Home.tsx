@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import SearchRoomBar from './SearchRoomBar';
-import palette from '../../styles/palette';
+import React from "react";
+import styled from "styled-components";
+import SearchRoomBar from "./SearchRoomBar";
+import palette from "../../styles/palette";
 
 const Container = styled.div`
   width: 100%;
   padding: 0 80px;
 
-  .home-search-bar-label {
+  .home-serach-bar-label {
     margin: 32px 0 16px;
     font-weight: 600;
     font-size: 14px;
@@ -26,7 +26,7 @@ const Container = styled.div`
     li {
       width: 100%;
       border-radius: 16px;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
       background-color: white;
       margin-right: 19px;
       cursor: pointer;
@@ -35,7 +35,7 @@ const Container = styled.div`
       }
       .home-category-card-image-wrapper {
         width: 100%;
-        position: ralative;
+        position: relative;
         padding-bottom: 66.66%;
         img {
           position: absolute;
@@ -45,6 +45,7 @@ const Container = styled.div`
           height: 100%;
         }
       }
+
       .home-category-card-texts {
         padding: 12px 16px;
         min-height: 90px;
@@ -65,7 +66,7 @@ const Container = styled.div`
 const Home: React.FC = () => {
   return (
     <Container>
-      <p className='home-search-bar-label'>숙소</p>
+      <p className="home-serach-bar-label">숙소</p>
       <SearchRoomBar />
       <h2>가까운 여행지, 에어비엔비와 탐험해보세요.</h2>
       <ul className="home-category-card-list">
@@ -113,4 +114,5 @@ const Home: React.FC = () => {
     </Container>
   );
 };
+
 export default Home;
