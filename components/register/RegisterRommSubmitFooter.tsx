@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import BackArrowIcon from '../../public/static/svg/register/register_room_footer_back_arrow.svg';
 import Button from '../common/button/Button';
 import palette from '../../styles/palette';
-import { registerRoomAPI } from '../..lib/api/room';
+import { registerRoomAPI } from '../../lib/api/room';
 import { useSelector} from '../../store';
 import Link from 'next/link';
 
@@ -41,7 +41,7 @@ const RegisterRoomSubmitFooter: React.FC = () => {
   const onClickRegisterRoom = async () => {
     const registerRoomBody = {
       ...registerRoom,
-      hosted: userId,
+      hostId: userId,
       };
       try {
         await registerRoomAPI(registerRoomBody);
