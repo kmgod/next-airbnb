@@ -20,16 +20,6 @@ const Container = styled.div`
     color: ${palette.gray_76};
     margin-bottom: 6px;
   }  
-  .register-room-step-info {
-    font-size: 14px;
-    max-width: 400px;
-    margin-bottom: 24px;
-  }
-  .register-room-description-wrapper {
-    width: 430px;
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
 `;
 
 const RegisterRoomPrice: React.FC = () => {

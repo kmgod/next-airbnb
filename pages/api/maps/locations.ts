@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         city: addressComponent[3].long_name,
         district: addressComponent[2].long_name,
         streetAddress: `${addressComponent[1].long_name} ${addressComponent[0].long_name}`,
-        postcode: addressComponent[5].long_name,
+        //postcode: addressComponent[5].long_name,
       };
       res.statusCode = 200;
       res.send(result);

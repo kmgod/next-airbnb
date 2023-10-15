@@ -61,7 +61,7 @@ const Container = styled.div`
   .react-datepicker__day {
     width: 48px;
     height: 48px;
-    display: inline-fles;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     margin: 0;
