@@ -11,6 +11,7 @@ const getSize = (size: 'small' | 'medium') => {
     case 'small':
       return css`
         height: 36px;
+        font-size: 14px;
       `;
     default:
       return undefined;

@@ -50,12 +50,12 @@ const RegisterRoomCheckStep: React.FC<IProps> = ({
   if(inProgress) {
     return (
       <Container>
-        <Link href={href}>
+        <Link legacyBehavior href={href}>
           <a className="register-room-check-in-progress">
             <span>{step}</span>
           </a>
         </Link>
-        <Link href={href}>
+        <Link legacyBehavior href={href}>
           <a className="register-room-check-continue-button">
             <Button color="dark_cyan" size='small'>
               계속
@@ -74,7 +74,7 @@ const RegisterRoomCheckStep: React.FC<IProps> = ({
   }
   return (
     <Container>
-      <Link href={href}>
+      <Link legacyBehavior href={href}>
         <a>
           <CheckMarkIcon />
         </a>

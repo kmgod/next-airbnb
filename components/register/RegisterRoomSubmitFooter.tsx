@@ -52,7 +52,7 @@ const RegisterRoomSubmitFooter: React.FC = () => {
     }
   return (
     <Container>
-      <Link href='/room/register/date'>
+      <Link legacyBehavior href='/room/register/date'>
         <a className='register-room-footer-back'>
           뒤로
         </a>
