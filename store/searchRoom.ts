@@ -22,7 +22,7 @@ const searchRoom = createSlice({
       state.location = action.payload;
       return state;
     },
-    //* 체무인 날짜 변경하기
+    //* 체크인 날짜 변경하기
     setStartDate(state, action: PayloadAction<string | null>) {
       state.checkInDate = action.payload;
       return state;
