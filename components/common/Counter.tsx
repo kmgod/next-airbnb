@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import palette from '../../styles/palette';
-import CounterMinusIcon from '../../public/static/svg/common/counter/counter_minus.svg';
-import CounterPlusIcon from '../../public/static/svg/common/counter/counter_plus.svg';
+import React from "react";
+import styled from "styled-components";
+import palette from "../../styles/palette";
+import CounterMinusIcon from "../../public/static/svg/common/counter/counter_minus.svg";
+import CounterPlusIcon from "../../public/static/svg/common/counter/counter_plus.svg";
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ const Container = styled.div`
     font-size: 14px;
     color: ${palette.gray_71};
   }
-  .count-contents {
+  .counter-contents {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,47 +54,48 @@ interface IProps {
   onChange?: (value: number) => void;
 }
 
-const Counter: React.FC<IProps> = ({ 
+const Counter: React.FC<IProps> = ({
   label = "텍스트",
   value = 1,
   minValue = 0,
   increaseNum = 1,
   onChange,
-  description, }) => {
-    return (
-      <Container>
-        <label className='counter-label'>
-          {label}
-          {description && (
-            <span className='counter-description'>{description}</span>
-          )}
-        </label>
-        <div className='counter-contents'>
-          <button
-            type='button'
-            disabled={value === minValue}
-            onClick={() => {
-              if (onChange) {
-                onChange(value - increaseNum);
-              }
-            }}
-          >
-            <CounterMinusIcon />
-          </button>
-          <p>{value}</p>
-          <button
-            type='button'
-            disabled={value === minValue}
-            onClick={() => {
-              if (onChange) {
-                onChange(value + increaseNum);
-              }
-            }}
-          >
-            <CounterPlusIcon />
-          </button>          
-        </div>
-      </Container>
-    );
-  };
-  export default React.memo(Counter);
+  description,
+}) => {
+  return (
+    <Container>
+      <label>
+        {label}
+        {description && (
+          <span className="counter-description">{description}</span>
+        )}
+      </label>
+      <div className="counter-contents">
+        <button
+          type="button"
+          disabled={value === minValue}
+          onClick={() => {
+            if (onChange) {
+              onChange(value - increaseNum);
+            }
+          }}
+        >
+          <CounterMinusIcon />
+        </button>
+        <p>{value}</p>
+        <button
+          type="button"
+          onClick={() => {
+            if (onChange) {
+              onChange(value + increaseNum);
+            }
+          }}
+        >
+          <CounterPlusIcon />
+        </button>
+      </div>
+    </Container>
+  );
+};
+
+export default React.memo(Counter);

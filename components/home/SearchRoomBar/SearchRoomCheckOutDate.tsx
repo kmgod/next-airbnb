@@ -55,7 +55,7 @@ const SearchRoomCheckOutDate: React.FC = () => {
   return (
     <Container>
       <div>
-        <p className='search-room-bar-date-label'>체크인</p>
+        <p className='search-room-bar-date-label'>체크아웃</p>
         <DatePicker
           selected={checkOutDate}
           monthsShown={2}

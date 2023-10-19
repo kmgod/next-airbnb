@@ -113,7 +113,7 @@ const SearchRoomBarLocation: React.FC = () => {
 
   //* 근처 추천 장소 클릭시
   const onClickNearPlaces = () => {
-    setPopupOpened(true);
+    setPopupOpened(false);
     navigator.geolocation.getCurrentPosition(
       ({ coords}) => {
         setLocationDispatch("근처 추천 장소");
